@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>天龙观山海全攻略 - 玩法机制、队伍配置与通关要点详解</title>
+<meta name="description" content="天龙观山海全攻略：系统梳理观山海玩法机制、队伍配置、门派搭配、层数推进节奏、常见失误与提升方向，帮助玩家少走弯路，稳定通关。">
+<meta name="keywords" content="天龙观山海全攻略,天龙观山海,观山海攻略,观山海队伍配置,观山海通关技巧">
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<style>
+  :root{
+    --ink:#1c2331;
+    --ink-2:#3d4759;
+    --muted:#6b7688;
+    --line:#e2e6ee;
+    --bg:#f5f6fa;
+    --card:#ffffff;
+    --gold:#b8862f;
+    --gold-soft:#f6efe0;
+    --jade:#2f7d6b;
+    --jade-soft:#e6f2ef;
+    --crimson:#9c3b34;
+    --radius:14px;
+    --shadow:0 6px 24px rgba(28,35,49,.07);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC",sans-serif;
+    font-size:16px;
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 20px;}
+
+  /* ---------- 顶部 ---------- */
+  .topbar{
+    background:linear-gradient(135deg,#1c2331 0%,#2c3a4f 55%,#3a4a63 100%);
+    color:#eef1f6;
+    position:relative;
+    overflow:hidden;
+  }
+  .topbar::after{
+    content:"";
+    position:absolute;
+    right:-120px;top:-120px;
+    width:420px;height:420px;
+    border-radius:50%;
+    background:radial-gradient(circle,rgba(184,134,47,.28),transparent 68%);
+    pointer-events:none;
+  }
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    padding:16px 0;
+    position:relative;
+    z-index:2;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:700;
+    letter-spacing:.5px;
+  }
+  .brand .seal{
+    width:38px;height:38px;
+    border-radius:9px;
+    background:linear-gradient(150deg,#c99a45,#8d6420);
+    color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-size:18px;
+    font-weight:800;
+    box-shadow:0 4px 12px rgba(0,0,0,.25);
+  }
+  .brand small{
+    display:block;
+    font-weight:400;
+    font-size:12px;
+    color:#a9b6c9;
+    letter-spacing:1.5px;
+  }
+  .nav-links{
+    display:flex;
+    gap:6px;
+    flex-wrap:wrap;
+  }
+  .nav-links a{
+    padding:7px 13px;
+    border-radius:999px;
+    font-size:14px;
+    color:#cfd8e6;
+    transition:.2s;
+  }
+  .nav-links a:hover{background:rgba(255,255,255,.12);color:#fff;}
+
+  /* ---------- 首屏 ---------- */
+  .hero{
+    position:relative;
+    z-index:2;
+    padding:26px 0 46px;
+    display:grid;
+    grid-template-columns:1.55fr 1fr;
+    gap:36px;
+    align-items:start;
+  }
+  .hero h1{
+    font-size:34px;
+    line-height:1.35;
+    margin:0 0 14px;
+    letter-spacing:.5px;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:#e8c477;
+  }
+  .hero p.lead{
+    color:#c3ccdb;
+    font-size:15.5px;
+    margin:0 0 22px;
+    max-width:640px;
+  }
+  .hero-tags{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px;}
+  .hero-tags span{
+    font-size:13px;
+    padding:5px 12px;
+    border-radius:999px;
+    background:rgba(255,255,255,.09);
+    border:1px solid rgba(255,255,255,.14);
+    color:#dbe3ee;
+  }
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;
+    padding:11px 22px;
+    border-radius:10px;
+    font-size:15px;
+    font-weight:600;
+    transition:.22s;
+    border:1px solid transparent;
+  }
+  .btn-gold{
+    background:linear-gradient(135deg,#d3a busy,#b8862f);
+    background:linear-gradient(135deg,#d8ab55,#a97a26);
+    color:#241a06;
+    box-shadow:0 6px 18px rgba(184,134,47,.32);
+  }
+  .btn-gold:hover{transform:translateY(-2px);}
+  .btn-ghost{
+    border-color:rgba(255,255,255,.3);
+    color:#e6ecf5;
+  }
+  .btn-ghost:hover{background:rgba(255,255,255,.1);}
+
+  .hero-panel{
+    background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:var(--radius);
+    padding:20px 22px;
+    backdrop-filter:blur(4px);
+  }
+  .hero-panel h2{
+    font-size:15px;
+    margin:0 0 14px;
+    color:#e8c477;
+    letter-spacing:1px;
+  }
+  .hero-panel ol{
+    margin:0;
+    padding-left:20px;
+    color:#c9d3e2;
+    font-size:14.5px;
+  }
+  .hero-panel ol li{margin-bottom:9px;}
+  .hero-panel ol li:last-child{margin-bottom:0;}
+
+  /* ---------- 主体布局 ---------- */
+  main{padding:44px 0 20px;}
+  .layout{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) 320px;
+    gap:34px;
+    align-items:start;
+  }
+  section.block{margin-bottom:44px;}
+  .sec-head{
+    display:flex;
+    align-items:baseline;
+    gap:12px;
+    margin-bottom:18px;
+    border-bottom:1px solid var(--line);
+    padding-bottom:12px;
+  }
+  .sec-head h2{
+    font-size:22px;
+    margin:0;
+    letter-spacing:.5px;
+  }
+  .sec-head .sub{
+    font-size:13.5px;
+    color:var(--muted);
+  }
+  .sec-head::before{
+    content:"";
+    width:5px;height:20px;
+    border-radius:3px;
+    background:linear-gradient(180deg,#c99a45,#8d6420);
+    flex:none;
+  }
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:22px 24px;
+    box-shadow:var(--shadow);
+  }
+  .card + .card{margin-top:16px;}
+  .card h3{
+    font-size:17px;
+    margin:0 0 10px;
+    color:var(--ink);
+  }
+  .card p{margin:0 0 10px;color:var(--ink-2);font-size:15px;}
+  .card p:last-child{margin-bottom:0;}
+  .card ul{margin:8px 0 0;padding-left:20px;color:var(--ink-2);font-size:15px;}
+  .card ul li{margin-bottom:7px;}
+  .card ul li:last-child{margin-bottom:0;}
+
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+
+  .step{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:20px;
+    box-shadow:var(--shadow);
+    position:relative;
+  }
+  .step .num{
+    display:inline-flex;
+    align-items:center;justify-content:center;
+    width:30px;height:30px;
+    border-radius:8px;
+    background:var(--gold-soft);
+    color:var(--gold);
+    font-weight:800;
+    font-size:14px;
+    margin-bottom:10px;
+  }
+  .step h3{font-size:16px;margin:0 0 8px;}
+  .step p{margin:0;font-size:14.5px;color:var(--ink-2);}
+
+  /* 队伍配置表 */
+  .role-table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:14.5px;
+    background:var(--card);
+    border-radius:var(--radius);
+    overflow:hidden;
+    box-shadow:var(--shadow);
+  }
+  .role-table th,.role-table td{
+    padding:12px 14px;
+    text-align:left;
+    border-bottom:1px solid var(--line);
+    vertical-align:top;
+  }
+  .role-table th{
+    background:#f0f2f7;
+    font-weight:700;
+    color:var(--ink);
+    font-size:14px;
+    white-space:nowrap;
+  }
+  .role-table tr:last-child td{border-bottom:none;}
+  .role-table td strong{color:var(--jade);}
+
+  /* 层数节奏 */
+  .phase{
+    display:flex;
+    gap:16px;
+    padding:16px 0;
+    border-bottom:1px dashed var(--line);
+  }
+  .phase:last-child{border-bottom:none;padding-bottom:0;}
+  .phase .tag{
+    flex:none;
+    width:74px;
+    height:32px;
+    display:flex;align-items:center;justify-content:center;
+    border-radius:8px;
+    background:var(--jade-soft);
+    color:var(--jade);
+    font-weight:700;
+    font-size:13.5px;
+  }
+  .phase .body{flex:1;}
+  .phase .body h3{font-size:15.5px;margin:2px 0 6px;}
+  .phase .body p{margin:0;font-size:14.5px;color:var(--ink-2);}
+
+  /* FAQ */
+  .faq-item{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    margin-bottom:12px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+  }
+  .faq-q{
+    width:100%;
+    text-align:left;
+    background:none;
+    border:none;
+    padding:16px 20px;
+    font-size:15.5px;
+    font-weight:600;
+    color:var(--ink);
+    cursor:pointer;
+    display:flex;
+    justify-content:space-between;
+    gap:14px;
+    font-family:inherit;
+  }
+  .faq-q::after{
+    content:"+";
+    color:var(--gold);
+    font-weight:800;
+    font-size:18px;
+    line-height:1;
+    transition:.25s;
+  }
+  .faq-item.open .faq-q::after{transform:rotate(45deg);}
+  .faq-a{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .3s ease;
+  }
+  .faq-a p{
+    margin:0;
+    padding:0 20px 18px;
+    font-size:14.5px;
+    color:var(--ink-2);
+  }
+
+  /* 侧栏 */
+  aside .side-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:20px;
+    box-shadow:var(--shadow);
+    margin-bottom:18px;
+  }
+  aside .side-card h3{
+    font-size:15.5px;
+    margin:0 0 14px;
+    padding-bottom:10px;
+    border-bottom:1px solid var(--line);
+    letter-spacing:.5px;
+  }
+  aside .side-card ul{
+    list-style:none;
+    margin:0;padding:0;
+    font-size:14.5px;
+  }
+  aside .side-card ul li{
+    padding:8px 0;
+    border-bottom:1px dashed var(--line);
+    color:var(--ink-2);
+  }
+  aside .side-card ul li:last-child{border-bottom:none;padding-bottom:0;}
+  aside .side-card ul li a:hover{color:var(--gold);}
+  .side-note{
+    background:linear-gradient(150deg,#1c2331,#33415a);
+    color:#d6dee9;
+    border:none;
+  }
+  .side-note h3{color:#e8c477;border-bottom-color:rgba(255,255,255,.16);}
+  .side-note p{margin:0 0 10px;font-size:14px;line-height:1.8;}
+  .side-note p:last-child{margin-bottom:0;}
+
+  /* 页脚 */
+  footer{
+    background:#1c2331;
+    color:#9fabbd;
+    padding:36px 0 26px;
+    margin-top:30px;
+    font-size:14px;
+  }
+  .foot-grid{
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr;
+    gap:28px;
+    padding-bottom:22px;
+    border-bottom:1px solid rgba(255,255,255,.1);
+  }
+  .foot-grid h4{
+    color:#e6ecf5;
+    font-size:15px;
+    margin:0 0 12px;
+  }
+  .foot-grid p{margin:0 0 8px;line-height:1.8;}
+  .foot-grid ul{list-style:none;margin:0;padding:0;}
+  .foot-grid ul li{margin-bottom:8px;}
+  .foot-grid ul li a:hover{color:#e8c477;}
+  .copyright{
+    padding-top:18px;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:10px;
+    font-size:13px;
+    color:#7d8a9e;
+  }
+
+  /* 响应式 */
+  @media (max-width:980px){
+    .hero{grid-template-columns:1fr;gap:26px;padding-bottom:36px;}
+    .layout{grid-template-columns:1fr;}
+    aside{order:2;}
+    .grid-3{grid-template-columns:1fr 1fr;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:640px){
+    body{font-size:15.5px;}
+    .nav{flex-direction:column;align-items:flex-start;gap:12px;}
+    .nav-links a{padding:6px 11px;font-size:13.5px;}
+    .hero h1{font-size:25px;}
+    .hero{padding:18px 0 30px;}
+    .grid-2,.grid-3{grid-template-columns:1fr;}
+    .card{padding:18px;}
+    .role-table{font-size:13.5px;}
+    .role-table th,.role-table td{padding:10px;}
+    .role-table thead{display:none;}
+    .role-table tr{display:block;border-bottom:1px solid var(--line);}
+    .role-table td{display:block;border-bottom:none;padding:8px 14px;}
+    .role-table td::before{
+      content:attr(data-label);
+      display:block;
+      font-weight:700;
+      font-size:12.5px;
+      color:var(--muted);
+      margin-bottom:2px;
+    }
+    .phase{flex-direction:column;gap:8px;}
+    .sec-head{flex-direction:column;gap:4px;}
+    .foot-grid{grid-template-columns:1fr;}
+    .copyright{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <nav class="nav">
+      <div class="brand">
+        <span class="seal">观</span>
+        <span>观山海攻略站<small>TIANLONG · GUANSHANHAI</small></span>
+      </div>
+      <div class="nav-links">
+        <a href="#intro">玩法概览</a>
+        <a href="#team">队伍配置</a>
+        <a href="#phase">推进节奏</a>
+        <a href="#mistake">常见误区</a>
+        <a href="#faq">常见问题</a>
+      </div>
+    </nav>
+
+    <div class="hero">
+      <div>
+        <h1>天龙观山海全攻略：<em>从机制理解到稳定通关</em></h1>
+        <p class="lead">观山海是天龙八部中偏团队协作的挑战玩法，难点不在单点爆发，而在角色分工、节奏控制与对机制细节的处理。本页把零散经验整理成一条可执行的思路：先看懂规则，再配好队伍，最后按阶段推进。</p>
+        <div class="hero-tags">
+          <span>机制拆解</span>
+          <span>门派搭配</span>
+          <span>层数节奏</span>
+          <span>失误复盘</span>
+          <span>提升方向</span>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-gold" href="#team">查看队伍配置</a>
+          <a class="btn btn-ghost" href="#faq">跳到常见问题</a>
+        </div>
+      </div>
+
+      <div class="hero-panel">
+        <h2>先记住这五件事</h2>
+        <ol>
+          <li>先确认当前版本的玩法入口与层数规则，不同区服细节可能不同。</li>
+          <li>队伍里必须有稳定的治疗与减伤来源，输出再高也怕断奶。</li>
+          <li>开怪前统一集火目标，避免伤害分散导致时间被拖没。</li>
+          <li>把控制技能留给关键节点，而不是见怪就丢。</li>
+          <li>失败后先复盘倒人原因，再决定是调配置还是调手法。</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap layout">
+
+    <div class="content">
+
+      <!-- 玩法概览 -->
+      <section class="block" id="intro">
+        <div class="sec-head">
+          <h2>观山海是什么：先理解玩法定位</h2>
+          <span class="sub">搞清目标，再谈打法</span>
+        </div>
+        <div class="card">
+          <p>观山海属于需要组队配合的挑战型内容，核心考验的是团队在有限时间与有限资源下，能否稳定处理一波接一波的压力。它和单纯刷怪的区别在于：怪物的强度、机制触发和阶段变化更明显，容错空间更小，个人操作好并不等于队伍能过。</p>
+          <p>因此，攻略的起点不是“哪个门派最强”，而是先回答三个问题：这个玩法对队伍的要求是什么、失败通常卡在哪一环、哪些准备可以在进本前就完成。把这三件事想清楚，后面的配置和手法才有意义。</p>
+        </div>
+
+        <div class="grid-3" style="margin-top:16px;">
+          <div class="step">
+            <span class="num">01</span>
+            <h3>目标明确</h3>
+            <p>以通关当前层数为目标，而不是追求全程无伤或极限输出。目标不同，配置与打法的取舍完全不同。</p>
+          </div>
+          <div class="step">
+            <span class="num">02</span>
+            <h3>分工明确</h3>
+            <p>谁主抗、谁主奶、谁负责打断与控制，进本前说清楚，比进本后临时喊技能有效得多。</p>
+          </div>
+          <div class="step">
+            <span class="num">03</span>
+            <h3>节奏明确</h3>
+            <p>什么时候集中爆发、什么时候收缩防守，按阶段安排，避免全程一个节奏硬打。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 队伍配置 -->
+      <section class="block" id="team">
+        <div class="sec-head">
+          <h2>队伍配置思路：按职责而不是按门派</h2>
+          <span class="sub">先补短板，再堆强度</span>
+        </div>
+        <div class="card">
+          <p>组队时最容易犯的错，是按“谁战力高就带谁”来凑人。观山海更看重职责是否齐全。下面这张表把常见职责、作用与配置要点列出来，具体门派名称请以你所在版本的实际情况为准，重点是理解每个位置要解决的问题。</p>
+        </div>
+
+        <table class="role-table" style="margin-top:16px;">
+          <thead>
+            <tr>
+              <th>职责</th>
+              <th>主要作用</th>
+              <th>配置要点</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="职责">主抗 / 前排</td>
+              <td data-label="主要作用">承受主要仇恨，稳定怪物位置，为后排创造输出环境。</td>
+              <td data-label="配置要点">优先保证生存与减伤覆盖，<strong>不要一味堆输出</strong>；拉怪路线要提前规划。</td>
+            </tr>
+            <tr>
+              <td data-label="职责">治疗 / 辅助</td>
+              <td data-label="主要作用">维持队伍血线，处理持续掉血与突发高伤。</td>
+              <td data-label="配置要点">关注蓝量与技能循环，提前预判而非残血才补；与减伤技能错开使用。</td>
+            </tr>
+            <tr>
+              <td data-label="职责">主力输出</td>
+              <td data-label="主要作用">在安全窗口内集中打出伤害，压缩战斗时间。</td>
+              <td data-label="配置要点">爆发技能留给关键阶段，避免开局全交导致后期乏力。</td>
+            </tr>
+            <tr>
+              <td data-label="职责">控制 / 打断</td>
+              <td data-label="主要作用">打断危险技能、限制怪物行动，降低团队承压。</td>
+              <td data-label="配置要点">熟悉机制触发时机，宁可留技能，也不要空放。</td>
+            </tr>
+            <tr>
+              <td data-label="职责">机动 / 补位</td>
+              <td data-label="主要作用">处理突发情况，如救人、拉走额外怪物、补控制。</td>
+              <td data-label="配置要点">意识比数值更重要，能看懂场面并主动补位。</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="grid-2" style="margin-top:16px;">
+          <div class="card">
+            <h3>配置时的三个优先级</h3>
+            <ul>
+              <li><strong>生存优先：</strong>能站住才有输出，减伤与治疗覆盖比堆伤害更关键。</li>
+              <li><strong>职责互补：</strong>避免全队都是同类角色，导致没人打断或没人救场。</li>
+              <li><strong>沟通顺畅：</strong>能听指挥、愿意报技能状态的队友，往往比高战力更实用。</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>进本前的准备清单</h3>
+            <ul>
+              <li>确认药品、回复道具与增益状态是否备齐。</li>
+              <li>统一集火目标与拉怪顺序，避免开怪后混乱。</li>
+              <li>约定危险阶段的应对方式，例如谁交减伤、谁负责打断。</li>
+              <li>检查技能与装备是否处于可用状态，避免临时调整。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 推进节奏 -->
+      <section class="block" id="phase">
+        <div class="sec-head">
+          <h2>层数推进节奏：把一场战斗拆成几段</h2>
+          <span class="sub">不同阶段用不同策略</span>
+        </div>
+        <div class="card">
+          <div class="phase">
+            <div class="tag">开局</div>
+            <div class="body">
+              <h3>稳住仇恨，别急着交爆发</h3>
+              <p>开局阶段最重要的是让前排把怪物位置和仇恨稳住。此时后排应控制输出节奏，避免抢仇恨导致怪物乱跑。治疗观察整体血线，不要过早交大技能，把资源留给后面的高压段。</p>
+            </div>
+          </div>
+          <div class="phase">
+            <div class="tag">中期</div>
+            <div class="body">
+              <h3>按机制处理，控制技能用在节点上</h3>
+              <p>中期通常是机制最密集的阶段，需要打断、控制与走位配合。建议把控制技能留给明确的危险动作，而不是随手释放。输出在安全窗口内集中，能显著缩短整体耗时。</p>
+            </div>
+          </div>
+          <div class="phase">
+            <div class="tag">高压</div>
+            <div class="body">
+              <h3>减伤与治疗错开，优先保人不保输出</h3>
+              <p>高压阶段容易出现连续掉血，此时应优先保证队伍存活。减伤技能与治疗技能错开覆盖，避免同一时间全交、之后出现空档。必要时放弃部分输出，换取稳定通过。</p>
+            </div>
+          </div>
+          <div class="phase">
+            <div class="tag">收尾</div>
+            <div class="body">
+              <h3>不要放松，留技能应对最后波动</h3>
+              <p>很多失败发生在看似快结束的时候。收尾阶段仍要保留一定的控制与治疗资源，避免因为松懈被反打。确认怪物状态后再决定是否全力输出。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 常见误区 -->
+      <section class="block" id="mistake">
+        <div class="sec-head">
+          <h2>常见误区与改进方向</h2>
+          <span class="sub">卡关时先对照这几条</span>
+        </div>
+        <div class="grid-2">
+          <div class="card">
+            <h3>误区一：只看战力不看配合</h3>
+            <p>战力高但职责重叠，队伍反而更容易崩。改进方向是先确定需要哪些职责，再在满足职责的人里选择强度更高的。</p>
+          </div>
+          <div class="card">
+            <h3>误区二：技能一好就放</h3>
+            <p>控制与减伤技能如果随意释放，关键节点就会没有资源可用。改进方向是提前约定技能使用时机，形成固定节奏。</p>
+          </div>
+          <div class="card">
+            <h3>误区三：倒人后继续硬打</h3>
+            <p>有人倒下后队伍承压会迅速上升，继续硬打往往导致连锁崩盘。改进方向是先稳住场面、救人复位，再重新组织推进。</p>
+          </div>
+          <div class="card">
+            <h3>误区四：失败后不复盘</h3>
+            <p>每次都从头再来，却不清楚上次为什么失败，等于重复消耗。改进方向是记录倒人时间点与原因，针对性调整配置或手法。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="block" id="faq">
+        <div class="sec-head">
+          <h2>常见问题</h2>
+          <span class="sub">玩家最常问的几点</span>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">观山海对战力要求高吗？</button>
+          <div class="faq-a">
+            <p>战力会影响推进的顺畅程度，但并不是唯一决定因素。职责齐全、机制处理到位、技能时机合理，往往能让中等配置的队伍也稳定推进。与其纠结数值，不如先检查队伍分工与配合是否存在明显短板。</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">队伍里必须要有治疗吗？</button>
+          <div class="faq-a">
+            <p>在大多数情况下，稳定的回复与减伤来源能显著提高容错。如果队伍选择不带专职治疗，就需要用减伤、控制与快速击杀来弥补，对配合要求更高，不建议在开荒阶段尝试。</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">卡在某一层很久，应该先调什么？</button>
+          <div class="faq-a">
+            <p>建议按顺序排查：先看倒人原因，再看技能时机，最后才考虑调整配置或提升数值。很多时候问题出在减伤与治疗重叠、控制技能空放，而不是输出不够。</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">不同门派的搭配有固定答案吗？</button>
+          <div class="faq-a">
+            <p>没有放之四海皆准的固定答案。版本调整、层数难度与队伍习惯都会影响选择。更稳妥的做法是先保证职责覆盖，再根据实际战斗表现微调，而不是照搬某一份配置表。</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">新手第一次打观山海要注意什么？</button>
+          <div class="faq-a">
+            <p>先跟着有经验的队友熟悉流程，重点观察机制触发时机与队伍节奏，不要急于表现输出。把每次失败当作信息收集，逐步建立对玩法的理解，比一次性冲高层更有效。</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- 侧栏 -->
+    <aside>
+      <div class="side-card">
+        <h3>本页导航</h3>
+        <ul>
+          <li><a href="#intro">玩法定位与核心目标</a></li>
+          <li><a href="#team">队伍职责与配置要点</a></li>
+          <li><a href="#phase">分阶段推进节奏</a></li>
+          <li><a href="#mistake">常见误区与改进</a></li>
+          <li><a href="#faq">常见问题解答</a></li>
+        </ul>
+      </div>
+
+      <div class="side-card">
+        <h3>提升优先顺序</h3>
+        <ul>
+          <li>1. 明确职责分工</li>
+          <li>2. 固定技能使用时机</li>
+          <li>3. 优化拉怪与集火顺序</li>
+          <li>4. 复盘失败原因</li>
+          <li>5. 最后再考虑数值提升</li>
+        </ul>
+      </div>
+
+      <div class="side-card side-note">
+        <h3>说明</h3>
+        <p>观山海的入口、层数规则与怪物机制可能随版本与区服调整。本页侧重通用的思路与方法，具体数值与细节请以游戏内实际显示为准。</p>
+        <p>如果某一层反复失败，建议先记录失败时的场面状态，再对照本页的误区部分逐条排查。</p>
+      </div>
+    </aside>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>观山海攻略站</h4>
+        <p>围绕天龙观山海玩法整理机制理解、队伍配置与推进节奏，帮助玩家减少无效尝试。</p>
+        <p>内容以通用思路为主，具体规则请以游戏内为准。</p>
+      </div>
+      <div>
+        <h4>内容板块</h4>
+        <ul>
+          <li><a href="#intro">玩法概览</a></li>
+          <li><a href="#team">队伍配置</a></li>
+          <li><a href="#phase">推进节奏</a></li>
+          <li><a href="#mistake">常见误区</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>快速参考</h4>
+        <ul>
+          <li><a href="#faq">常见问题</a></li>
+          <li><a href="#team">进本准备清单</a></li>
+          <li><a href="#mistake">卡关排查顺序</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      <span>天龙观山海全攻略 · 玩法思路整理</span>
+      <span>内容仅供学习与交流参考</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-q').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var item = btn.parentElement;
+      var answer = item.querySelector('.faq-a');
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(openItem){
+        openItem.classList.remove('open');
+        openItem.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if(!isOpen){
+        item.classList.add('open');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
+</script>
+
+</body>
+            </html>
