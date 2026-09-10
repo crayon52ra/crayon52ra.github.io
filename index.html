@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>白嫖者联盟官网 - 免费资源分享与省钱攻略社区指南</title>
+<meta name="description" content="白嫖者联盟官网是一个聚焦免费资源、优惠福利与省钱技巧的信息分享平台。这里整理免费软件、限时活动、学习资源与实用工具，帮助用户用更少的成本获得所需内容。">
+<meta name="keywords" content="白嫖者联盟,白嫖者联盟官网,免费资源,省钱攻略,优惠福利,免费软件,限时活动">
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<style>
+  :root{
+    --bg:#0f1115;
+    --bg-soft:#171a21;
+    --panel:#1c2029;
+    --panel-2:#232833;
+    --line:#2c323e;
+    --text:#e8ebf0;
+    --text-dim:#9aa3b2;
+    --accent:#22c55e;
+    --accent-2:#16a34a;
+    --accent-soft:rgba(34,197,94,.12);
+    --warn:#f59e0b;
+    --radius:14px;
+    --shadow:0 10px 30px rgba(0,0,0,.35);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 20px;}
+
+  /* 顶部导航 */
+  .site-header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(15,17,21,.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    height:64px;
+  }
+  .logo{
+    display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;letter-spacing:.5px;
+  }
+  .logo-mark{
+    width:32px;height:32px;border-radius:9px;
+    background:linear-gradient(135deg,var(--accent),#0ea5e9);
+    display:flex;align-items:center;justify-content:center;
+    font-size:15px;color:#04140a;font-weight:800;
+  }
+  .logo span small{display:block;font-size:11px;font-weight:400;color:var(--text-dim);letter-spacing:0;}
+  .nav-links{display:flex;gap:26px;font-size:14.5px;color:var(--text-dim);}
+  .nav-links a{transition:color .2s;position:relative;}
+  .nav-links a:hover{color:var(--accent);}
+  .nav-cta{
+    font-size:13.5px;padding:8px 16px;border-radius:999px;
+    background:var(--accent-soft);color:var(--accent);
+    border:1px solid rgba(34,197,94,.35);
+    transition:.2s;white-space:nowrap;
+  }
+  .nav-cta:hover{background:var(--accent);color:#04140a;}
+  .menu-toggle{display:none;background:none;border:1px solid var(--line);color:var(--text);border-radius:8px;padding:6px 10px;font-size:16px;cursor:pointer;}
+
+  /* 首屏 */
+  .hero{
+    padding:64px 0 48px;
+    background:
+      radial-gradient(900px 380px at 12% -10%,rgba(34,197,94,.16),transparent 60%),
+      radial-gradient(700px 320px at 92% 0%,rgba(14,165,233,.14),transparent 62%);
+    border-bottom:1px solid var(--line);
+  }
+  .hero-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:44px;align-items:center;}
+  .badge{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:12.5px;color:var(--accent);
+    background:var(--accent-soft);border:1px solid rgba(34,197,94,.3);
+    padding:5px 12px;border-radius:999px;margin-bottom:18px;
+  }
+  .badge .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);}
+  .hero h1{font-size:38px;line-height:1.28;letter-spacing:.5px;margin-bottom:16px;}
+  .hero h1 em{font-style:normal;color:var(--accent);}
+  .hero p.lead{color:var(--text-dim);font-size:15.5px;max-width:560px;margin-bottom:26px;}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:26px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:11px 22px;border-radius:10px;font-size:14.5px;font-weight:600;
+    transition:.2s;cursor:pointer;border:1px solid transparent;
+  }
+  .btn-primary{background:var(--accent);color:#04140a;}
+  .btn-primary:hover{background:#2ee06a;transform:translateY(-1px);}
+  .btn-ghost{border-color:var(--line);color:var(--text);background:var(--panel);}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
+  .hero-stats{display:flex;gap:34px;flex-wrap:wrap;}
+  .hero-stats div b{display:block;font-size:20px;color:var(--text);}
+  .hero-stats div span{font-size:12.5px;color:var(--text-dim);}
+
+  .hero-panel{
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px;box-shadow:var(--shadow);
+  }
+  .hero-panel h3{font-size:14px;color:var(--text-dim);font-weight:600;margin-bottom:14px;letter-spacing:.5px;}
+  .quick-list{list-style:none;display:flex;flex-direction:column;gap:10px;}
+  .quick-list li{
+    display:flex;align-items:center;gap:12px;
+    background:var(--panel-2);border:1px solid var(--line);
+    border-radius:10px;padding:11px 13px;font-size:13.5px;
+    transition:.2s;
+  }
+  .quick-list li:hover{border-color:rgba(34,197,94,.5);transform:translateX(3px);}
+  .quick-list .ico{
+    width:28px;height:28px;border-radius:8px;flex:none;
+    background:var(--accent-soft);color:var(--accent);
+    display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;
+  }
+  .quick-list small{display:block;color:var(--text-dim);font-size:11.5px;line-height:1.4;}
+
+  /* 通用区块 */
+  section{padding:56px 0;}
+  .section-head{margin-bottom:30px;}
+  .section-head .kicker{font-size:12.5px;color:var(--accent);letter-spacing:2px;text-transform:uppercase;font-weight:600;}
+  .section-head h2{font-size:26px;margin:8px 0 10px;letter-spacing:.5px;}
+  .section-head p{color:var(--text-dim);font-size:14.5px;max-width:720px;}
+
+  /* 分类导航 */
+  .cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;}
+  .cat{
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    padding:20px;transition:.22s;display:block;
+  }
+  .cat:hover{border-color:rgba(34,197,94,.55);transform:translateY(-3px);box-shadow:var(--shadow);}
+  .cat .ico{
+    width:40px;height:40px;border-radius:11px;margin-bottom:14px;
+    background:linear-gradient(135deg,rgba(34,197,94,.22),rgba(14,165,233,.18));
+    display:flex;align-items:center;justify-content:center;font-size:18px;
+  }
+  .cat h3{font-size:15.5px;margin-bottom:6px;}
+  .cat p{font-size:13px;color:var(--text-dim);}
+
+  /* 资源列表 */
+  .res-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;}
+  .res-card{
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    padding:20px;display:flex;flex-direction:column;gap:12px;transition:.22s;
+  }
+  .res-card:hover{border-color:rgba(34,197,94,.45);transform:translateY(-3px);}
+  .res-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;}
+  .res-card h3{font-size:16px;line-height:1.45;}
+  .tag{
+    font-size:11.5px;padding:3px 9px;border-radius:999px;white-space:nowrap;
+    background:var(--accent-soft);color:var(--accent);border:1px solid rgba(34,197,94,.28);
+  }
+  .tag.warn{background:rgba(245,158,11,.12);color:var(--warn);border-color:rgba(245,158,11,.3);}
+  .tag.blue{background:rgba(14,165,233,.12);color:#38bdf8;border-color:rgba(14,165,233,.3);}
+  .res-card p{font-size:13.5px;color:var(--text-dim);}
+  .res-meta{display:flex;gap:14px;flex-wrap:wrap;font-size:12.5px;color:var(--text-dim);border-top:1px dashed var(--line);padding-top:12px;margin-top:auto;}
+
+  /* 攻略区 */
+  .guide{background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .guide-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;}
+  .guide-card{
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px;
+  }
+  .guide-card .num{
+    font-size:13px;font-weight:700;color:var(--accent);letter-spacing:1px;margin-bottom:10px;
+  }
+  .guide-card h3{font-size:16px;margin-bottom:10px;}
+  .guide-card p{font-size:13.5px;color:var(--text-dim);}
+  .guide-card ul{margin-top:10px;padding-left:18px;font-size:13.5px;color:var(--text-dim);}
+  .guide-card li{margin-bottom:6px;}
+
+  /* 排行榜 */
+  .rank-layout{display:grid;grid-template-columns:1.6fr 1fr;gap:26px;align-items:start;}
+  .rank-list{list-style:none;display:flex;flex-direction:column;gap:10px;}
+  .rank-list li{
+    display:flex;align-items:center;gap:14px;
+    background:var(--panel);border:1px solid var(--line);border-radius:12px;
+    padding:14px 16px;transition:.2s;
+  }
+  .rank-list li:hover{border-color:rgba(34,197,94,.45);}
+  .rank-no{
+    width:26px;height:26px;border-radius:8px;flex:none;font-size:13px;font-weight:700;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--panel-2);color:var(--text-dim);
+  }
+  .rank-list li:nth-child(1) .rank-no{background:var(--accent);color:#04140a;}
+  .rank-list li:nth-child(2) .rank-no{background:rgba(34,197,94,.55);color:#04140a;}
+  .rank-list li:nth-child(3) .rank-no{background:rgba(34,197,94,.3);color:var(--accent);}
+  .rank-info{flex:1;min-width:0;}
+  .rank-info b{font-size:14.5px;font-weight:600;display:block;}
+  .rank-info span{font-size:12.5px;color:var(--text-dim);}
+  .rank-tag{font-size:11.5px;color:var(--text-dim);white-space:nowrap;}
+
+  .notice{
+    background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--warn);
+    border-radius:12px;padding:20px;
+  }
+  .notice h3{font-size:15px;margin-bottom:10px;color:var(--warn);}
+  .notice p{font-size:13.5px;color:var(--text-dim);margin-bottom:8px;}
+  .notice ul{padding-left:18px;font-size:13.5px;color:var(--text-dim);}
+  .notice li{margin-bottom:6px;}
+
+  /* FAQ */
+  .faq-list{display:flex;flex-direction:column;gap:12px;max-width:900px;}
+  details{
+    background:var(--panel);border:1px solid var(--line);border-radius:12px;
+    padding:16px 20px;transition:.2s;
+  }
+  details[open]{border-color:rgba(34,197,94,.45);}
+  summary{
+    cursor:pointer;font-size:15px;font-weight:600;list-style:none;
+    display:flex;justify-content:space-between;align-items:center;gap:14px;
+  }
+  summary::-webkit-details-marker{display:none;}
+  summary::after{content:"+";color:var(--accent);font-size:18px;font-weight:400;}
+  details[open] summary::after{content:"−";}
+  details p{margin-top:12px;font-size:13.8px;color:var(--text-dim);}
+
+  /* 订阅条 */
+  .subscribe{
+    background:linear-gradient(135deg,rgba(34,197,94,.14),rgba(14,165,233,.1));
+    border:1px solid var(--line);border-radius:var(--radius);
+    padding:34px;display:flex;justify-content:space-between;align-items:center;gap:26px;flex-wrap:wrap;
+  }
+  .subscribe h2{font-size:22px;margin-bottom:8px;}
+  .subscribe p{font-size:14px;color:var(--text-dim);max-width:520px;}
+  .sub-form{display:flex;gap:10px;flex-wrap:wrap;}
+  .sub-form input{
+    background:var(--bg);border:1px solid var(--line);border-radius:10px;
+    padding:11px 16px;color:var(--text);font-size:14px;min-width:230px;outline:none;
+    font-family:inherit;
+  }
+  .sub-form input:focus{border-color:var(--accent);}
+
+  /* 页脚 */
+  .site-footer{
+    border-top:1px solid var(--line);background:var(--bg-soft);
+    padding:44px 0 26px;font-size:13.5px;color:var(--text-dim);
+  }
+  .foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:30px;margin-bottom:30px;}
+  .foot-grid h4{font-size:14px;color:var(--text);margin-bottom:14px;font-weight:600;}
+  .foot-grid ul{list-style:none;display:flex;flex-direction:column;gap:9px;}
+  .foot-grid a:hover{color:var(--accent);}
+  .foot-brand p{margin-top:12px;line-height:1.75;max-width:320px;}
+  .foot-bottom{
+    border-top:1px solid var(--line);padding-top:20px;
+    display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:12.5px;
+  }
+
+  /* 响应式 */
+  @media (max-width:960px){
+    .hero-grid{grid-template-columns:1fr;}
+    .rank-layout{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:720px){
+    .nav-links{
+      display:none;position:absolute;top:64px;left:0;right:0;
+      background:var(--bg-soft);border-bottom:1px solid var(--line);
+      flex-direction:column;gap:0;padding:8px 0;
+    }
+    .nav-links.open{display:flex;}
+    .nav-links a{padding:12px 20px;}
+    .menu-toggle{display:block;}
+    .nav-cta{display:none;}
+    .hero{padding:44px 0 36px;}
+    .hero h1{font-size:27px;}
+    section{padding:42px 0;}
+    .section-head h2{font-size:21px;}
+    .subscribe{padding:24px;flex-direction:column;align-items:flex-start;}
+    .foot-grid{grid-template-columns:1fr;}
+    .hero-stats{gap:22px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a href="#" class="logo">
+      <span class="logo-mark">白</span>
+      <span>白嫖者联盟<small>免费资源 · 省钱攻略</small></span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#categories">资源分类</a>
+      <a href="#resources">最新整理</a>
+      <a href="#guide">省钱攻略</a>
+      <a href="#ranking">热门榜单</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+    <a href="#subscribe" class="nav-cta">订阅更新</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="展开菜单">☰</button>
+  </div>
+</header>
+
+<main>
+
+  <!-- 首屏 -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="badge"><span class="dot"></span>免费资源信息聚合 · 持续整理更新</span>
+        <h1>白嫖者联盟官网<br><em>把免费资源与省钱技巧</em>整理清楚</h1>
+        <p class="lead">
+          白嫖者联盟是一个面向普通用户的信息分享型平台，主要整理网络上可公开获取的免费软件、限时优惠、学习资料与实用工具。
+          我们不做资源存储，只做筛选、分类与说明，帮你在繁杂的信息里更快找到真正有用的那部分。
+        </p>
+        <div class="hero-actions">
+          <a href="#resources" class="btn btn-primary">浏览最新整理 →</a>
+          <a href="#guide" class="btn btn-ghost">查看省钱攻略</a>
+        </div>
+        <div class="hero-stats">
+          <div><b>8 大类</b><span>资源方向分类</span></div>
+          <div><b>每周</b><span>内容更新节奏</span></div>
+          <div><b>0 元</b><span>浏览与查阅成本</span></div>
+        </div>
+      </div>
+      <aside class="hero-panel">
+        <h3>今天可以看什么</h3>
+        <ul class="quick-list">
+          <li>
+            <span class="ico">软</span>
+            <div>免费软件与工具<small>办公、剪辑、效率类正版免费方案</small></div>
+          </li>
+          <li>
+            <span class="ico">券</span>
+            <div>限时优惠与福利<small>公开渠道可领取的活动信息汇总</small></div>
+          </li>
+          <li>
+            <span class="ico">学</span>
+            <div>免费学习资源<small>公开课、文档、电子资料获取思路</small></div>
+          </li>
+          <li>
+            <span class="ico">省</span>
+            <div>日常省钱技巧<small>会员、订阅、出行等场景的替代方案</small></div>
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 分类 -->
+  <section id="categories">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Categories</div>
+        <h2>资源分类导航</h2>
+        <p>按使用场景划分方向，方便你快速定位自己需要的那一类免费资源。每个分类下都包含整理说明与注意事项，避免盲目尝试。</p>
+      </div>
+      <div class="cats">
+        <a href="#resources" class="cat">
+          <div class="ico">💻</div>
+          <h3>免费软件</h3>
+          <p>正版免费、开源替代与个人免费版工具的整理与对比。</p>
+        </a>
+        <a href="#resources" class="cat">
+          <div class="ico">🎬</div>
+          <h3>影音娱乐</h3>
+          <p>公开可看的影视、音乐、有声内容渠道与使用说明。</p>
+        </a>
+        <a href="#resources" class="cat">
+          <div class="ico">📚</div>
+          <h3>学习资料</h3>
+          <p>公开课、电子书、题库与技能学习路径的获取方式。</p>
+        </a>
+        <a href="#resources" class="cat">
+          <div class="ico">🎁</div>
+          <h3>福利活动</h3>
+          <p>官方公开的限时领取、试用与优惠信息整理。</p>
+        </a>
+        <a href="#resources" class="cat">
+          <div class="ico">🛠️</div>
+          <h3>实用工具</h3>
+          <p>在线转换、图片处理、文档协作等轻量工具推荐。</p>
+        </a>
+        <a href="#resources" class="cat">
+          <div class="ico">📱</div>
+          <h3>移动应用</h3>
+          <p>手机端免费应用、替代方案与权限注意事项。</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 最新整理 -->
+  <section id="resources">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Latest</div>
+        <h2>最新整理内容</h2>
+        <p>以下为近期整理的方向性内容，说明资源类型、适用人群与使用要点。具体链接与获取方式请以对应官方渠道为准。</p>
+      </div>
+      <div class="res-grid">
+        <article class="res-card">
+          <div class="res-top">
+            <h3>办公效率类免费工具组合</h3>
+            <span class="tag">效率</span>
+          </div>
+          <p>整理文档处理、思维导图、截图标注等常用场景下的免费方案，包含开源软件与个人免费版工具，适合学生与轻办公人群。</p>
+          <div class="res-meta">
+            <span>适用：学生 / 办公</span>
+            <span>平台：Windows / 网页</span>
+          </div>
+        </article>
+
+        <article class="res-card">
+          <div class="res-top">
+            <h3>公开课与技能学习入口梳理</h3>
+            <span class="tag blue">学习</span>
+          </div>
+          <p>汇总公开可访问的课程平台与学习路径，说明如何按目标筛选课程，避免在大量资源中迷失方向。</p>
+          <div class="res-meta">
+            <span>适用：自学提升</span>
+            <span>形式：视频 / 文档</span>
+          </div>
+        </article>
+
+        <article class="res-card">
+          <div class="res-top">
+            <h3>会员订阅的替代与省钱思路</h3>
+            <span class="tag">省钱</span>
+          </div>
+          <p>针对常见订阅服务，整理家庭共享、学生认证、免费试用等合规方式，帮助降低长期使用成本。</p>
+          <div class="res-meta">
+            <span>适用：日常消费</span>
+            <span>提示：以官方规则为准</span>
+          </div>
+        </article>
+
+        <article class="res-card">
+          <div class="res-top">
+            <h3>图片与视频处理轻量工具</h3>
+            <span class="tag">工具</span>
+          </div>
+          <p>介绍无需安装或轻量安装的图片压缩、格式转换、视频剪辑工具，适合自媒体与日常素材处理。</p>
+          <div class="res-meta">
+            <span>适用：内容创作</span>
+            <span>平台：网页 / 桌面</span>
+          </div>
+        </article>
+
+        <article class="res-card">
+          <div class="res-top">
+            <h3>电子书与文档获取的合规渠道</h3>
+            <span class="tag blue">阅读</span>
+          </div>
+          <p>说明公共图书馆、开放版权、作者授权等合法获取途径，帮助读者在尊重版权的前提下找到想读的内容。</p>
+          <div class="res-meta">
+            <span>适用：阅读爱好者</span>
+            <span>提示：注意版权</span>
+          </div>
+        </article>
+
+        <article class="res-card">
+          <div class="res-top">
+            <h3>手机端免费应用的筛选要点</h3>
+            <span class="tag warn">注意</span>
+          </div>
+          <p>从权限、广告、隐私三个角度说明如何判断一款免费应用是否值得安装，减少不必要的风险。</p>
+          <div class="res-meta">
+            <span>适用：安卓 / iOS</span>
+            <span>重点：隐私与权限</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 省钱攻略 -->
+  <section class="guide" id="guide">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Guide</div>
+        <h2>省钱与资源获取攻略</h2>
+        <p>“白嫖”并不是无条件索取，而是在合规前提下，用更聪明的方式使用公开资源。以下思路可以帮助你少走弯路。</p>
+      </div>
+      <div class="guide-grid">
+        <div class="guide-card">
+          <div class="num">01</div>
+          <h3>先判断资源是否正规</h3>
+          <p>优先选择官方渠道、开源项目与明确授权的资源。来源不明的安装包、破解工具往往伴随风险。</p>
+          <ul>
+            <li>确认发布方是否为官方或知名社区</li>
+            <li>查看是否有清晰的授权说明</li>
+            <li>避免需要关闭杀毒软件才能运行的程序</li>
+          </ul>
+        </div>
+        <div class="guide-card">
+          <div class="num">02</div>
+          <h3>善用免费版与试用期</h3>
+          <p>很多软件提供功能完整的免费版或限时试用，先试用再决定是否付费，是成本最低的评估方式。</p>
+          <ul>
+            <li>记录试用到期时间，避免自动续费</li>
+            <li>对比免费版与付费版的功能差异</li>
+            <li>学生身份可关注官方教育优惠</li>
+          </ul>
+        </div>
+        <div class="guide-card">
+          <div class="num">03</div>
+          <h3>关注官方活动节奏</h3>
+          <p>电商、软件、平台常在特定节点推出公开优惠，提前了解规则比临时抢购更有效。</p>
+          <ul>
+            <li>订阅官方通知而非第三方转述</li>
+            <li>仔细阅读活动门槛与限制条件</li>
+            <li>不轻信“内部渠道”“独家名额”等说法</li>
+          </ul>
+        </div>
+        <div class="guide-card">
+          <div class="num">04</div>
+          <h3>建立自己的资源清单</h3>
+          <p>把常用的免费工具、学习入口、优惠渠道记录下来，长期使用比每次重新搜索更省时间。</p>
+          <ul>
+            <li>按场景分类整理，便于快速调用</li>
+            <li>定期清理失效或不再使用的条目</li>
+            <li>标注使用限制与到期时间</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 榜单 -->
+  <section id="ranking">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Ranking</div>
+        <h2>热门关注方向</h2>
+        <p>根据常见搜索与讨论热度整理的方向性榜单，仅代表内容关注度，不构成任何推荐或背书。</p>
+      </div>
+      <div class="rank-layout">
+        <ol class="rank-list">
+          <li>
+            <span class="rank-no">1</span>
+            <div class="rank-info"><b>免费办公与文档工具</b><span>轻办公人群关注度较高</span></div>
+            <span class="rank-tag">效率</span>
+          </li>
+          <li>
+            <span class="rank-no">2</span>
+            <div class="rank-info"><b>公开课与自学资源</b><span>技能提升相关需求稳定</span></div>
+            <span class="rank-tag">学习</span>
+          </li>
+          <li>
+            <span class="rank-no">3</span>
+            <div class="rank-info"><b>会员优惠与试用信息</b><span>消费类关注度较高</span></div>
+            <span class="rank-tag">福利</span>
+          </li>
+          <li>
+            <span class="rank-no">4</span>
+            <div class="rank-info"><b>图片视频处理工具</b><span>内容创作者常用方向</span></div>
+            <span class="rank-tag">工具</span>
+          </li>
+          <li>
+            <span class="rank-no">5</span>
+            <div class="rank-info"><b>电子书与阅读渠道</b><span>长期稳定的阅读需求</span></div>
+            <span class="rank-tag">阅读</span>
+          </li>
+          <li>
+            <span class="rank-no">6</span>
+            <div class="rank-info"><b>手机端实用应用</b><span>日常使用频率较高</span></div>
+            <span class="rank-tag">移动</span>
+          </li>
+        </ol>
+        <aside class="notice">
+          <h3>安全提示</h3>
+          <p>在获取任何免费资源时，请优先保障账号与设备安全。</p>
+          <ul>
+            <li>不随意输入账号密码到非官方页面</li>
+            <li>谨慎对待要求关闭安全软件的操作</li>
+            <li>涉及付费时以官方支付渠道为准</li>
+            <li>尊重版权，不传播未授权内容</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">FAQ</div>
+        <h2>常见问题</h2>
+        <p>关于白嫖者联盟官网以及免费资源获取的常见疑问，整理如下。</p>
+      </div>
+      <div class="faq-list">
+        <details open>
+          <summary>白嫖者联盟官网主要提供什么内容？</summary>
+          <p>本站是一个信息整理与分享型平台，主要汇总公开可获取的免费软件、学习资源、优惠福利与实用工具，并提供分类说明和使用注意事项。我们不存储资源文件，也不提供任何破解或侵权内容。</p>
+        </details>
+        <details>
+          <summary>网站上的资源都可以直接下载吗？</summary>
+          <p>不是。本站以整理信息为主，具体获取方式需要前往对应官方渠道或授权平台。我们会在内容中说明来源类型，建议用户优先选择官方渠道。</p>
+        </details>
+        <details>
+          <summary>如何判断一个免费资源是否安全？</summary>
+          <p>可以从发布方是否可信、是否有明确授权说明、是否需要关闭安全软件、是否索取过多权限等方面判断。来源不明、承诺“永久免费无限制”的内容通常需要格外谨慎。</p>
+        </details>
+        <details>
+          <summary>网站内容会定期更新吗？</summary>
+          <p>我们会按主题持续整理和补充内容，但资源本身的有效性由对应平台决定。若发现信息失效，建议以官方最新说明为准。</p>
+        </details>
+        <details>
+          <summary>可以投稿或反馈失效信息吗？</summary>
+          <p>欢迎通过页脚的联系方式反馈问题或建议。对于失效、错误或存在风险的内容，我们会核实后进行调整。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 订阅 -->
+  <section id="subscribe">
+    <div class="wrap">
+      <div class="subscribe">
+        <div>
+          <h2>订阅内容更新提醒</h2>
+          <p>留下邮箱，第一时间获取新整理方向与实用攻略。我们只发送与免费资源、省钱技巧相关的内容，不做无关推广。</p>
+        </div>
+        <form class="sub-form" onsubmit="return handleSubscribe(event)">
+          <input type="email" placeholder="请输入你的邮箱地址" required aria-label="邮箱地址">
+          <button type="submit" class="btn btn-primary">订阅</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <h4>白嫖者联盟</h4>
+        <p>一个聚焦免费资源与省钱技巧的信息整理平台。我们相信，在合规前提下善用公开资源，是一种值得学习的能力。</p>
+      </div>
+      <div>
+        <h4>内容方向</h4>
+        <ul>
+          <li><a href="#resources">免费软件</a></li>
+          <li><a href="#resources">学习资料</a></li>
+          <li><a href="#resources">福利活动</a></li>
+          <li><a href="#resources">实用工具</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>帮助中心</h4>
+        <ul>
+          <li><a href="#faq">常见问题</a></li>
+          <li><a href="#guide">使用攻略</a></li>
+          <li><a href="#ranking">热门方向</a></li>
+          <li><a href="#subscribe">订阅更新</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>关于本站</h4>
+        <ul>
+          <li><a href="#">平台介绍</a></li>
+          <li><a href="#">版权声明</a></li>
+          <li><a href="#">免责说明</a></li>
+          <li><a href="#">联系反馈</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2024 白嫖者联盟官网 · 内容仅供信息参考</span>
+      <span>请遵守相关法律法规，尊重版权与平台规则</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // 移动端菜单
+  var menuToggle = document.getElementById('menuToggle');
+  var navLinks = document.getElementById('navLinks');
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', function () {
+      navLinks.classList.toggle('open');
+    });
+    navLinks.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') {
+        navLinks.classList.remove('open');
+      }
+    });
+  }
+
+  // 订阅表单占位处理
+  function handleSubscribe(e) {
+    e.preventDefault();
+    var form = e.target;
+    var input = form.querySelector('input[type="email"]');
+    if (input && input.value) {
+      alert('感谢订阅！我们会在有新内容整理时通知你。');
+      input.value = '';
+    }
+    return false;
+  }
+</script>
+
+</body>
+            </html>
